@@ -1228,3 +1228,60 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: var(--ink-mute);
 }
+
+/* ====== Aggiunte: contenitori foto + placeholder ====== */
+
+/* Placeholder generico per immagini non ancora caricate.
+   Quando sostituisci la <div class="ph-img"> con un <img>, questi stili
+   restano inattivi e si applicano gli stili specifici del contenitore. */
+.ph-img {
+  width: 100%;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--bg-warm),
+      var(--bg-warm) 14px,
+      var(--bg) 14px,
+      var(--bg) 28px
+    );
+  border: 1px dashed var(--rule-strong);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-img::before {
+  content: attr(data-label);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.45rem 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* Ritratto in cima alla sidebar di Chi sono */
+.portrait {
+  margin: 0 0 2rem 0;
+}
+.portrait .ph-img,
+.portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tolgo lo sticky alla sidebar di Chi sono: con il ritratto sopra,
+   l'altezza combinata supera la finestra e lo sticky rompe il layout.
+   La sidebar ora scorre normalmente. */
+@media (min-width: 900px) {
+  .editorial-sidebar {
+    position: static;
+    top: auto;
+  }
+}
