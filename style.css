@@ -1275,7 +1275,17 @@ h1, h2, h3, h4 {
   object-fit: cover;
   display: block;
 }
-
+/* Banda foto in home, fra hero e progetti */
+.photo-banner {
+  margin: clamp(2rem, 4vw, 3rem) 0;
+}
+.photo-banner .ph-img,
+.photo-banner img {
+  width: 100%;
+  aspect-ratio: 21 / 7;
+  object-fit: cover;
+  display: block;
+}
 /* Tolgo lo sticky alla sidebar di Chi sono: con il ritratto sopra,
    l'altezza combinata supera la finestra e lo sticky rompe il layout.
    La sidebar ora scorre normalmente. */
