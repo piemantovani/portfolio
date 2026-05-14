@@ -1343,7 +1343,7 @@ h1, h2, h3, h4 {
   }
   .portrait .ph-img,
   .portrait img {
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 4 / 5; 
   }
 }
 .proj-content {
