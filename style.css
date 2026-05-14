@@ -531,7 +531,23 @@ h1, h2, h3, h4 {
 }
 @media (min-width: 900px) {
   .editorial { grid-template-columns: 1fr 1.4fr; }
-  .editorial-sidebar { position: sticky; top: 6rem; align-self: start; }
+  .editorial-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    /* scrollbar sottile e discreta */
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-strong) transparent;
+  }
+  /* webkit (Chrome/Safari) */
+  .editorial-sidebar::-webkit-scrollbar { width: 6px; }
+  .editorial-sidebar::-webkit-scrollbar-thumb {
+    background: var(--rule-strong);
+    border-radius: 3px;
+  }
+  .editorial-sidebar::-webkit-scrollbar-track { background: transparent; }
 }
 
 .fact-list {
@@ -1229,7 +1245,9 @@ h1, h2, h3, h4 {
   color: var(--ink-mute);
 }
 
-/* ====== Aggiunte: contenitori foto + placeholder ====== */
+/* =========================================================
+   Contenitori foto + placeholder
+   ========================================================= */
 
 /* Placeholder generico per immagini non ancora caricate.
    Quando sostituisci la <div class="ph-img"> con un <img>, questi stili
@@ -1275,6 +1293,7 @@ h1, h2, h3, h4 {
   object-fit: cover;
   display: block;
 }
+
 /* Banda foto in home, fra hero e progetti */
 .photo-banner {
   margin: clamp(2rem, 4vw, 3rem) 0;
@@ -1287,47 +1306,33 @@ h1, h2, h3, h4 {
   display: block;
 }
 
-/* ====== Aggiunte: contenitori foto + placeholder ====== */
-
-.ph-img { ... }                          /* placeholder base */
-.ph-img::before { ... }                  /* etichetta del placeholder */
-
-.portrait { ... }                        /* ritratto in Chi sono */
-.portrait .ph-img, .portrait img { ... } /* aspect 4:5 */
-
-.photo-banner { ... }                    /* banda foto in Home */
-.photo-banner .ph-img, .photo-banner img { ... }  /* aspect 21:7 */
-
-.proj-photo { ... }                      /* foto dentro card portfolio */
-.proj-photo .ph-img, .proj-photo img { ... }      /* aspect 16:9 */
-
-@media (min-width: 900px) {
-  .editorial-sidebar { position: static; top: auto; }
+/* Foto dentro le card di portfolio (FIX) */
+.proj-photo {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 0 1.25rem 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--bg-warm);
 }
-/* Tolgo lo sticky alla sidebar di Chi sono: con il ritratto sopra,
-   l'altezza combinata supera la finestra e lo sticky rompe il layout.
-   La sidebar ora scorre normalmente. */
-@media (min-width: 900px) {
-  .editorial-sidebar {
-    position: sticky;
-    top: 6rem;
-    align-self: start;
-    max-height: calc(100vh - 7rem);
-    overflow-y: auto;
-    /* scrollbar sottile e discreta */
-    scrollbar-width: thin;
-    scrollbar-color: var(--rule-strong) transparent;
-  }
-  /* webkit (Chrome/Safari) */
-  .editorial-sidebar::-webkit-scrollbar { width: 6px; }
-  .editorial-sidebar::-webkit-scrollbar-thumb {
-    background: var(--rule-strong);
-    border-radius: 3px;
-  }
-  .editorial-sidebar::-webkit-scrollbar-track { background: transparent; }
+.proj-photo .ph-img,
+.proj-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
-.proj-card .proj-photo {
-  max-width: 640px !important;
-  margin: 0 0 1.25rem 0 !important;
+/* Cintura di sicurezza: nessuna immagine deve mai sforare la card */
+.proj-card img,
+.proj-card .ph-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile: la foto occupa tutta la larghezza disponibile della card */
+@media (max-width: 700px) {
+  .proj-photo { max-width: 100%; }
 }
