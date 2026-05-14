@@ -1336,16 +1336,7 @@ h1, h2, h3, h4 {
 @media (max-width: 700px) {
   .proj-photo { max-width: 100%; }
 }
-@media (max-width: 899px) {
-  .portrait {
-    max-width: 260px;
-    margin: 0 auto 2rem;
-  }
-  .portrait .ph-img,
-  .portrait img {
-    aspect-ratio: 4 / 5; 
-  }
-}
+
 .proj-content {
   grid-template-columns: minmax(0, 1fr);
 }
