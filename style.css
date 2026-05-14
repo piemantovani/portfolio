@@ -1309,7 +1309,20 @@ h1, h2, h3, h4 {
    La sidebar ora scorre normalmente. */
 @media (min-width: 900px) {
   .editorial-sidebar {
-    position: static;
-    top: auto;
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    /* scrollbar sottile e discreta */
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-strong) transparent;
   }
+  /* webkit (Chrome/Safari) */
+  .editorial-sidebar::-webkit-scrollbar { width: 6px; }
+  .editorial-sidebar::-webkit-scrollbar-thumb {
+    background: var(--rule-strong);
+    border-radius: 3px;
+  }
+  .editorial-sidebar::-webkit-scrollbar-track { background: transparent; }
 }
