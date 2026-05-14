@@ -1327,7 +1327,7 @@ h1, h2, h3, h4 {
   .editorial-sidebar::-webkit-scrollbar-track { background: transparent; }
 }
 
-.proj-photo {
-  max-width: 640px;
-  margin: 0 0 1.25rem 0;
+.proj-card .proj-photo {
+  max-width: 640px !important;
+  margin: 0 0 1.25rem 0 !important;
 }
