@@ -1355,25 +1355,32 @@ h1, h2, h3, h4 {
   }
 }
 
+/* =========================================================
+   Privacy note
+   ========================================================= */
+
 .privacy-note {
   max-width: 900px;
-  margin: 3rem auto 4rem;
+  margin: clamp(3rem, 6vw, 5rem) auto;
   padding: 1.75rem 2rem;
-  background-color: rgba(0, 0, 0, 0.025);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  font-size: 0.82rem;
-  line-height: 1.65;
-  color: #4a4030;
+  background: var(--bg-warm);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 
 .privacy-note h2 {
-  font-family: inherit;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-variation-settings: normal;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-weight: normal;
-  color: #8a7c66;
-  margin: 0 0 1.2rem;
+  line-height: 1.4;
+  color: var(--ink-mute);
+  margin: 0 0 1.1rem;
 }
 
 .privacy-note p {
@@ -1385,21 +1392,20 @@ h1, h2, h3, h4 {
 }
 
 .privacy-note a {
-  color: #8b3a2e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: text-decoration-thickness 0.15s;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  transition: background 160ms ease;
 }
 
 .privacy-note a:hover {
-  text-decoration-thickness: 2px;
+  background: rgba(139, 42, 31, 0.08);
 }
 
 @media (max-width: 640px) {
   .privacy-note {
-    margin: 2rem 1rem 3rem;
-    padding: 1.25rem 1.25rem;
-    font-size: 0.85rem;
+    margin: 2rem var(--gutter);
+    padding: 1.4rem 1.4rem;
+    font-size: 0.95rem;
   }
 }
