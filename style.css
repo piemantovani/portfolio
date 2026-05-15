@@ -1354,3 +1354,32 @@ h1, h2, h3, h4 {
     height: auto;
   }
 }
+
+.privacy-note {
+  max-width: 60ch;
+  margin: 4rem auto 2rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.privacy-note h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-note p {
+  margin-bottom: 0.8rem;
+}
+
+.privacy-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
