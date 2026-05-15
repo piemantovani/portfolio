@@ -1289,6 +1289,7 @@ h1, h2, h3, h4 {
 .portrait .ph-img,
 .portrait img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   display: block;
@@ -1341,14 +1342,15 @@ h1, h2, h3, h4 {
   grid-template-columns: minmax(0, 1fr);
 }
 
-@media (max-width: 899px) {
-  .portrait .ph-img,
-  .portrait img {
-    aspect-ratio: 1 / 1;   /* quadrata da cellulare */
-  }
-}
-
 .portrait {
   margin: 0 0 2rem 0;
   max-width: 460px;
+}
+
+@media (max-width: 899px) {
+  .editorial-sidebar .portrait img,
+  .editorial-sidebar .portrait .ph-img {
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
 }
