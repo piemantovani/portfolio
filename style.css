@@ -1347,3 +1347,8 @@ h1, h2, h3, h4 {
     aspect-ratio: 1 / 1;   /* quadrata da cellulare */
   }
 }
+
+.portrait {
+  margin: 0 0 2rem 0;
+  max-width: 460px;
+}
