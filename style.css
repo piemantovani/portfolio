@@ -1340,3 +1340,10 @@ h1, h2, h3, h4 {
 .proj-content {
   grid-template-columns: minmax(0, 1fr);
 }
+
+@media (max-width: 899px) {
+  .portrait .ph-img,
+  .portrait img {
+    aspect-ratio: 1 / 1;   /* quadrata da cellulare */
+  }
+}
